@@ -13,7 +13,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'mvn test'
-                script { withSonarQubeEnv(credentialsId: 'SonarQube', installationName: 'MySonarQube') { // You can override the credential to be used
+                script { withSonarQubeEnv( installationName: 'MySonarQube') { // You can override the credential to be used
                         sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155:sonar'
                         }
                 }
